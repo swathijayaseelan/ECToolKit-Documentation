@@ -52,11 +52,14 @@ postgres=# create database syllabus_lti_development;
 ```
 
 ##Get Overview Application Set up##
-1. Clone the Overview repository using the below command under your workspace
+* Clone the Overview repository using the below command under your workspace
 ```git clone https://github.com/HBSAWS/Overview.git```
-2. Run the below command to download all the gems needed for the application.
+* Run the below command to set the curb get to use system libraries.
+```bundle config curb --use-system-libraries```
+* Run the below command to download all the gems needed for the application.
 ```bundle install```
-3. Edit the database.yml file and under the configuration for development add below. (Please don't commit this change)
+if you encounter any error, run ```bundle update``` and then try doing ```bundle install``` again.
+* Edit the database.yml file and under the configuration for development add below. (Please don't commit this change)
 ```
  adapter: postgresql
   encoding: unicode
@@ -68,16 +71,15 @@ postgres=# create database syllabus_lti_development;
   timeout: 5000
   port: 5432
 ```
-4. Run the below command to create the tables for the application
-```bundle exec rake db:migrate```
-5. Copy the below files under config and rename them as below
-
+* Copy the below files under config and rename them as below
 Original Name | New Name
 ------------- | ---------
 email.yml.example | email.yml
 redis.yml.example | redis.yml
 s3\_config\_.yml.example | s3\_config.yml
-6. Start the application by running the command
+* Run the below command to create the tables for the application
+```bundle exec rake db:migrate```
+* Start the application by running the command
 ```rails server```
 
 

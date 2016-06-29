@@ -67,16 +67,17 @@ postgres=# create database syllabus_lti_development;
   pool: 5
   timeout: 5000
   port: 5432
-  ```
-3. Run the below command to create the tables for the application
+```
+4. Run the below command to create the tables for the application
 ```bundle exec rake db:migrate```
-4. Copy the below files under config and rename them as below
-
+5. Copy the below files under config and rename them as below
 Original Name | New Name
 ------------- | ---------
 email.yml.example | email.yml
 redis.yml.example | redis.yml
 s3_config.yml.example | s3_config.yml
+6. Start the application by running the command
+```rails server```
 
 
 

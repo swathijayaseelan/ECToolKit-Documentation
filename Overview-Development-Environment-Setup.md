@@ -76,7 +76,7 @@ Original Name | New Name
 ------------- | ---------
 email.yml.example | email.yml
 redis.yml.example | redis.yml
-s3_config.yml.example | s3_config.yml
+s3\_config\_.yml.example | s3\_config.yml
 6. Start the application by running the command
 ```rails server```
 

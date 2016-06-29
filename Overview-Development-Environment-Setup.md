@@ -71,6 +71,7 @@ postgres=# create database syllabus_lti_development;
 4. Run the below command to create the tables for the application
 ```bundle exec rake db:migrate```
 5. Copy the below files under config and rename them as below
+
 Original Name | New Name
 ------------- | ---------
 email.yml.example | email.yml

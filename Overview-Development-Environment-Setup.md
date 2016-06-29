@@ -66,7 +66,8 @@ postgres=# create database syllabus_lti_development;
   password: *******
   pool: 5
   timeout: 5000
-  port: 5432```
+  port: 5432
+  ```
 3. Run the below command to create the tables for the application
 ```bundle exec rake db:migrate```
 4. Copy the below files under config and rename them as below

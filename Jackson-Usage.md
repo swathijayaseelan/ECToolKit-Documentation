@@ -10,4 +10,19 @@ The application use Joda Time to serialize and deserialize the date values. This
 ###Mix-In###
 The application uses Mix-Ins feature of Jackson to present different views of a same given entity/bean. The `JacksonConfiguration` class defines a `MixInModule` class that maps every entity bean to its corresponding MixIn views. The mixin interfaces indicate which property will be serialized or deserialized.
 
- 
+Example:
+
+The `CourseSection` class is mapped to `CourseSectionMixIn` class in the `MixInModule`. Whenever `CourseSection` is serialized properties are available based on the views chosen. As an example this can be seen in the class `PeriodReportingController.groovy`.
+```
+	@JsonView(Views.CourseSection.Demand)
+	@RequestMapping(value='/courseSectionDemand', method=GET)
+	List<CourseSection> courseSectionDemandReport(@PathEntity ElectivePeriod electivePeriod) {
+		periodReportingService.buildCourseSectionDemandReport(electivePeriod)
+	}
+
+	@JsonView(Views.CourseSection.Verify)
+	@RequestMapping(value='/verify', method=GET)
+	List<CourseSection> verify(@PathEntity ElectivePeriod electivePeriod) {
+		ECPhase.get(electivePeriod?.phaseId)?.sections ?: Collections.emptyList()
+	}
+```	

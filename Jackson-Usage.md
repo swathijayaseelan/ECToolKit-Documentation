@@ -12,7 +12,8 @@ The application uses Mix-Ins feature of Jackson to present different views of a 
 
 Example:
 
-The `CourseSection` class is mapped to `CourseSectionMixIn` class in the `MixInModule`. Whenever `CourseSection` is serialized properties are available based on the views chosen. As an example this can be seen in the class `PeriodReportingController.groovy`.
+The `CourseSection` class is mapped to `CourseSectionMixIn` class in the `MixInModule`. Whenever `CourseSection` is serialized properties are available based on the views chosen. As an example this can be seen in the class `PeriodReportingController.groovy`. The various view classes are found in the class `edu.hbs.ectoolkit.converter.json.Views`.
+
 ```
 	@JsonView(Views.CourseSection.Demand)
 	@RequestMapping(value='/courseSectionDemand', method=GET)

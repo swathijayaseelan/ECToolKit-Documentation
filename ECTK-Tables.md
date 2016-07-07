@@ -18,4 +18,14 @@
 |Course |MUTUALLY_EXCLUSIVE_COURSE | This table contains the mutually exclusive courses for any given course|
 |Course Section |LESSON_EVENT | This table contains all the lessons and meeting template details of a course section|
 |Course Section |COURSE_SECTION_FACULTY | This table contains the faculty details of a given course section.|
+|Course Section |ELECTIVE_COURSE_SECTION | This table contains the mapping between course sections and elective periods|
+|Person |ELECTIVE_PERIOD_STUDENT | This table contains the mapping between elective period and students |
+|Person |EXCLUSION_SET | A student may want to exclude courses from is view on the schedule view. This table holds the master details about the exclusion set. |
+|Person |EXCLUSION_SET_COURSES | This table contains the mapping between exclusion sets and courses |
+|Person |STUDENT_REQUESTS | This table contains the requests created by the student. All the requests are stored in a single column as a JSON. |
+|Allocation/Algorithm |HBS_DRAFT | This table contains the entries about draft algorithm runs.|
+|Allocation/Algorithm | COURSE_ALLOCATION | This table contains the master entry about every algorithm run.|
+|Allocation/Algorithm | COURSE_ALLOCATION_STUDENT | This table contains the initial position of every student during the algorithm run. This position is used to determine when a students requests get picked up during the run.|
+|Allocation/Algorithm | COURSE_REQUEST | This table contains details about the student requests for each algorithm run that was run against the request by an allocation run.|
+ 
 

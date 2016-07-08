@@ -72,11 +72,12 @@ if you encounter any error, run ```bundle update``` and then try doing ```bundle
   port: 5432
 ```
 * Copy the below files under config and rename them as below
-Original Name | New Name
-------------- | ---------
-email.yml.example | email.yml
-redis.yml.example | redis.yml
-s3\_config\_.yml.example | s3\_config.yml
+
+|Original Name | New Name|
+|------------- | ---------|
+|email.yml.example | email.yml|
+|redis.yml.example | redis.yml|
+|s3\_config\_.yml.example | s3\_config.yml|
 * Run the below command to create the tables for the application
 ```bundle exec rake db:migrate```
 * Start the application by running the command

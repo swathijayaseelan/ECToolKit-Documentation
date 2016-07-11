@@ -1,7 +1,7 @@
 #Technical Specification
-EC Toolkit (ECTK) allows students to choose and drop courses for the elective (2nd) year of the MBA program. It provides opportunity for the students to analyze about courses and choose them based on various criteria. 
+EC Toolkit (ECTK) facilitates students to choose and drop courses for the elective (2nd) year of the MBA program. It provides opportunity for the students to analyze about courses and choose them based on various criteria. 
 
-Through ECTK 
+Through ECTK the MBA registrar can effectively administer the process of student enrollment. It provides them various reports which help them review the process better.
 
 ##High Level Business Requirements
 

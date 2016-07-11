@@ -42,4 +42,25 @@
 |Notification|NOTIFICATION_ARGS | This table stores all the arguments that needs to be passed parse the message from the resource bundle.|
 |Audit|SWITCH_USER_LOG|This table captures all the instances when an admin switches to a student login and returns back.|
 
+##Detailed Table Structure##
+
+###COURSE_REQUEST###
+|COLUMN NAME|DATA TYPE|NULLABLE|DEFAULT DATA|COMMENTS|
+|-----------|---------|--------|------------|--------|
+|ID|NUMBER(19,0)|No|null|This column is a surrogate primary key for the table. It is generated using the sequence `seq_course_request_id`.|
+|COURSE_ID|NUMBER(10,0)|No|null|This column denotes the course details. Foreign Keys into `COURSE.COURSE_ID`.|
+|COURSE_ALLOCATION_ID|NUMBER(10,0)|No|null|This column connects the record with the parent COURSE_ALLOCATION record.|
+COURSE_ENROLLMENT_ID	NUMBER(10,0)	Yes	(null)	4	(null)
+COURSE_SECTION_ID	NUMBER(10,0)	No	(null)	5	(null)
+DATE_CREATED	TIMESTAMP(6)	No	(null)	6	(null)
+PARENT_ID	NUMBER(19,0)	Yes	(null)	7	(null)
+PRIORITY	NUMBER(4,0)	No	(null)	8	(null)
+PROCESSED_ROUND	NUMBER(2,0)	Yes	(null)	9	(null)
+QUEUE_POSITION	NUMBER(4,0)	Yes	(null)	10	(null)
+ROUND_PRIORITY	NUMBER(4,0)	Yes	(null)	11	(null)
+STATUS	NUMBER(3,0)	No	(null)	12	(null)
+STUDENT_ID	NUMBER(10,0)	No	(null)	13	(null)
+REQUEST_TYPE	NUMBER(3,0)	No	(null)	14	(null)
+SECTION_SWITCH	NUMBER(1,0)	Yes	(null)	15	(null)
+
 

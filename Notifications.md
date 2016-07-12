@@ -1,11 +1,13 @@
 Tables Involved:
 •	NOTIFICAION
 •	NOTIFICATION_ARGS
+
 Javascript/html files Involved:
 These files handles the display of the Notifications and the Information which is post to all the EC Students.
 •	Notification.js
 •	notificationService.js
 •	notifications.html
+
 Classes Involved:
 •	NotificationService.groovy
 •	NotificationController.groovy

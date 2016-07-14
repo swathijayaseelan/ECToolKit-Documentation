@@ -42,7 +42,7 @@ This service communicates with the database and constructs the data which are ne
 
 ### Basic Report Flow:
 
-![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/master/BasicReportFloe.jpeg?_sm_au_=i4sfNDn0HvvfvS2k "Basic Report Flow")
+![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/master/BasicReportFloe.png?_sm_au_=i4sfNDn0HvvfvS2k "Basic Report Flow")
 
 Queries involved:
 ```

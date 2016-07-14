@@ -40,6 +40,9 @@ Json columns requires special handling and the Total Request, fall, January & sp
 •	PeriodReportingService.groovy
 This service communicates with the database and constructs the data which are needed to be displayed in the Report
 
+### Basic Report Flow:
+
+
 
 Queries involved:
 ```

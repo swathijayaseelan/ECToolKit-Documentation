@@ -4,7 +4,7 @@
 -	When the current Allocation Period is ‘PRE-REGISTRATION’ then this report holds information of the students who raised below 30 requests.( No of Requests < 30)
 -	When the current Allocation Period is ‘ADD-DROP’ then this report holds the information of the students who raised below 4 requests. .( No of Requests < 4)
 
-#### Report Details:
+#### Report Details: 
 
 |Headers in Report|Columns in Tables|Table Involved|
 |--------------------- |--------------------- |-----------------|

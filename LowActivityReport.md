@@ -42,6 +42,7 @@ This service communicates with the database and constructs the data which are ne
 
 
 Queries involved:
+```
 EC_PHASE:
 select
         ecphase0_.id as id1_12_0_,
@@ -73,6 +74,8 @@ select
         ec_phase ecphase0_
     where
         ecphase0_.id=?
+```
+```
 PERSON: Only Active Students are retrieved which includes Test Students as well.(withdrawn is null)
 select
         this_.elective_period_id as elective_period_id1_15_1_,
@@ -106,6 +109,8 @@ select
     where
         this_.elective_period_id=?
         and this_.withdrawn is null
+```
+```
 STUDENT_REQUESTS:
 select
         this_.student as student1_30_0_,
@@ -115,5 +120,5 @@ select
         student_requests this_
     where
         this_.elective_period=?
-
+```
 

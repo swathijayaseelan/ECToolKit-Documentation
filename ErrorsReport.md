@@ -40,11 +40,16 @@ Json columns requires special handling and the Total Request, fall, January & sp
 - PeriodReportingController.groovy:
       Based on the request Mapping corresponding PeriodReportingService is involved.
 - PeriodExportingController.groovy:
-      Based on the request Mapping corresponding PeriodExportingService is involved. This controller is invoked while the user tries to download the data via ‘EXPORT’ button.
+      Based on the request Mapping corresponding PeriodExportingService is involved. 
+      This controller is invoked while the user tries to download the data via ‘EXPORT’ button.
 
 ### Service:
--	PeriodReportingService.groovy
-This service communicates with the database and constructs the data which are needed to be displayed in the Report
+-	PeriodReportingService.groovy:
+      This service communicates with the database and constructs the data which are needed to be displayed in the Report
+
+### Data Layer:
+-Schedule.groovy:
+    All the above checks for Credit/Course Errors will be done here.
 
 ### Basic Report Flow:
 

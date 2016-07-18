@@ -1,5 +1,6 @@
 #### Errors Report:
--	Report holds two different kinds of Errors. Credit Errors & Course Errors
+-	Report holds two different kinds of Errors. Credit Errors & Course Errors.
+
 #### Credit Error Details: 
 - Below are the type of checks made in the student schedule and errors are captured.
 
@@ -12,7 +13,15 @@
 |Credit Errors         |excessive X credits|When the student schedule have more than the X credits.
 |Credit Errors         |excessive Y credits|When the student schedule have more than the Y credits.
                                                
+#### Course Error Details: 
+- Below are the type of checks made in the student schedule and errors are captured.
 
+|Type of Error|Messages|Comments|
+|--------------------- |--------------------- |-----------------|
+|Course Errors         | has duplicate course<<courseNumbers>> and <<sections>| Applicable only to ClassRoom courses. If the courseNumber already exists in the enrolled Courses.And it checks for the CourseSections, if already exists in the enrolled Course Section.
+|Course Errors           |has mutually exclusive courses<<CourseNumber>> and <<sections>>|If the course which is enrolled exists in Mutually exclusive set.And it checks for the CourseSections, if already exists in the enrolled Course Section.
+|Course Errors           |missing prerequisite for course <<Course Numbers>>|When the student schedule have the prerequisite courses missing.
+|Course Errors           |has timing conflict for courses <<Course Numbers>> and <<sections>>|If the course which is enrolled conflicts with any other courses.And it checks for the CourseSections, if there is any time conflicts with any other course sections.
 
 Json columns requires special handling and the Total Request, fall, January & spring are calculated against the Students based on the foreign key ID.
 ### Tables Involved:

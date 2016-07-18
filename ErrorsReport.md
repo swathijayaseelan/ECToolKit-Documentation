@@ -18,31 +18,32 @@
 
 |Type of Error|Messages|Comments|
 |--------------------- |--------------------- |-----------------|
-|Course Errors         | has duplicate course<<courseNumbers>> and <<sections>| Applicable only to ClassRoom courses. If the courseNumber already exists in the enrolled Courses.And it checks for the CourseSections, if already exists in the enrolled Course Section.
-|Course Errors           |has mutually exclusive courses<<CourseNumber>> and <<sections>>|If the course which is enrolled exists in Mutually exclusive set.And it checks for the CourseSections, if already exists in the enrolled Course Section.
-|Course Errors           |missing prerequisite for course <<Course Numbers>>|When the student schedule have the prerequisite courses missing.
-|Course Errors           |has timing conflict for courses <<Course Numbers>> and <<sections>>|If the course which is enrolled conflicts with any other courses.And it checks for the CourseSections, if there is any time conflicts with any other course sections.
+|Course Errors         | has duplicate course and sections| Applicable only to ClassRoom courses. If the courseNumber already exists in the enrolled Courses.And it checks for the CourseSections, if already exists in the enrolled Course Section.
+|Course Errors           |has mutually exclusive courses and sections |If the course which is enrolled exists in Mutually exclusive set.And it checks for the CourseSections, if already exists in the enrolled Course Section.
+|Course Errors           |missing prerequisite for courses|When the student schedule have the prerequisite courses missing.
+|Course Errors           |has timing conflict for courses and sections|If the course which is enrolled conflicts with any other courses.And it checks for the CourseSections, if there is any time conflicts with any other course sections.
 
 Json columns requires special handling and the Total Request, fall, January & spring are calculated against the Students based on the foreign key ID.
 ### Tables Involved:
-•	EC_PHASE
-•	PERSON
-•	STUDENT_REQUESTS
+-	EC_PHASE
+-	COURSE_ENROLLMENT
+-	ALLOCATION_PERIOD
+
 ## Classes Involved:
 ### JS/HTML Files:
-•	admin.js
-•	BasicReportCtrl.js
-•	ReportService.js
-•	lowActivity.html
+- admin.js
+- ErrorsCtrl.js
+- ReportService.js
+- errors.html
 
 ### Controller: (Rest Controllers)
-•	PeriodReportingController.groovy:
+- PeriodReportingController.groovy:
       Based on the request Mapping corresponding PeriodReportingService is involved.
-•	PeriodExportingController.groovy:
+- PeriodExportingController.groovy:
       Based on the request Mapping corresponding PeriodExportingService is involved. This controller is invoked while the user tries to download the data via ‘EXPORT’ button.
 
 ### Service:
-•	PeriodReportingService.groovy
+-	PeriodReportingService.groovy
 This service communicates with the database and constructs the data which are needed to be displayed in the Report
 
 ### Basic Report Flow:
@@ -84,49 +85,41 @@ select
         ecphase0_.id=?
 ```
 ```
-PERSON: Only Active Students are retrieved which includes Test Students as well.(withdrawn is null)
-select
-        this_.elective_period_id as elective_period_id1_15_1_,
-        this_.student_id as student_id2_15_1_,
-        this_.refresh_date as refresh_date3_15_1_,
-        this_.withdrawn as withdrawn4_15_1_,
-        person2_.id as id1_23_0_,
-        person2_.biography as biography2_23_0_,
-        person2_.date_created as date_created3_23_0_,
-        person2_.email as email4_23_0_,
-        person2_.entry_term_id as entry_term_id5_23_0_,
-        person2_.estimated_graduation_date as estimated_graduati6_23_0_,
-        person2_.first_name as first_name7_23_0_,
-        person2_.first_time_tour as first_time_tour8_23_0_,
-        person2_.interests as interests9_23_0_,
-        person2_.invalid as invalid10_23_0_,
-        person2_.last_name as last_name11_23_0_,
-        person2_.last_updated as last_updated12_23_0_,
-        person2_.middle_name as middle_name13_23_0_,
-        person2_.phase_involved as phase_involved14_23_0_,
-        person2_.program_type as program_type15_23_0_,
-        person2_.refresh_date as refresh_date16_23_0_,
-        person2_.sync_error_message as sync_error_messag17_23_0_,
-        person2_.title as title18_23_0_,
-        person2_.units as units19_23_0_
-    from
-        elective_period_student this_
-    inner join
-        person person2_
-            on this_.student_id=person2_.id
-    where
-        this_.elective_period_id=?
-        and this_.withdrawn is null
+COURSE_ENROLLMENT:
+ select
+     courseenro0_.student_id as col_0_0_,
+     courseenro0_.course_section_id as col_1_0_
+ from
+     course_enrollment courseenro0_
+ where
+     (
+         courseenro0_.program_session_year=?
+         and courseenro0_.program_id=?
+         or courseenro0_.elective_period_id=?
+     )
+     and (
+         courseenro0_.date_dropped is null
+     )
 ```
 ```
-STUDENT_REQUESTS:
+ALLOCATION_PERIOD:
 select
-        this_.student as student1_30_0_,
-        this_.elective_period as elective_period2_30_0_,
-        this_.requests_json as requests_json3_30_0_
-    from
-        student_requests this_
-    where
-        this_.elective_period=?
+    allocation0_.id as id1_0_0_,
+    allocation0_.active as active2_0_0_,
+    allocation0_.allocation_date as allocation_date3_0_0_,
+    allocation0_.course_allocation_id as course_allocation_4_0_0_,
+    allocation0_.date_created as date_created5_0_0_,
+    allocation0_.elective_period_id as elective_period_id6_0_0_,
+    allocation0_.end_date as end_date7_0_0_,
+    allocation0_.last_updated as last_updated8_0_0_,
+    allocation0_.name as name9_0_0_,
+    allocation0_.refresh_date as refresh_date10_0_0_,
+    allocation0_.sequence_name as sequence_name11_0_0_,
+    allocation0_.start_date as start_date12_0_0_,
+    allocation0_.allocation_period_type as allocation_period13_0_0_
+from
+    allocation_period allocation0_
+where
+    allocation0_.id=?
 ```
 

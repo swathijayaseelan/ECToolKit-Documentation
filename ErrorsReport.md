@@ -1,7 +1,7 @@
-#### Errors Report:
+### Errors Report:
 -	Report holds two different kinds of Errors. Credit Errors & Course Errors.
 
-#### Credit Error Details: 
+##### Credit Error Details: 
 - Below are the type of checks made in the student schedule and errors are captured.
 
 |Type of Error|Messages|Comments|
@@ -13,7 +13,7 @@
 |Credit Errors         |excessive X credits|When the student schedule have more than the X credits.
 |Credit Errors         |excessive Y credits|When the student schedule have more than the Y credits.
                                                
-#### Course Error Details: 
+##### Course Error Details: 
 - Below are the type of checks made in the student schedule and errors are captured.
 
 |Type of Error|Messages|Comments|
@@ -24,38 +24,38 @@
 |Course Errors           |has timing conflict for courses and sections|If the course which is enrolled conflicts with any other courses.And it checks for the CourseSections, if there is any time conflicts with any other course sections.
 
 Json columns requires special handling and the Total Request, fall, January & spring are calculated against the Students based on the foreign key ID.
-### Tables Involved:
+##### Tables Involved:
 -	EC_PHASE
 -	COURSE_ENROLLMENT
 -	ALLOCATION_PERIOD
 
-## Classes Involved:
-### JS/HTML Files:
+##### Classes Involved:
+###### JS/HTML Files:
 - admin.js
 - ErrorsCtrl.js
 - ReportService.js
 - errors.html
 
-### Controller: (Rest Controllers)
+##### Controller: (Rest Controllers)
 - PeriodReportingController.groovy:
       Based on the request Mapping corresponding PeriodReportingService is involved.
 - PeriodExportingController.groovy:
       Based on the request Mapping corresponding PeriodExportingService is involved. 
       This controller is invoked while the user tries to download the data via ‘EXPORT’ button.
 
-### Service:
+##### Service:
 -	PeriodReportingService.groovy:
       This service communicates with the database and constructs the data which are needed to be displayed in the Report
 
-### Data Layer:
+##### Data Layer:
 - Schedule.groovy:
       Data(Report Details) is constructed in Schedule.groovy. Details are segregated into credit/course errors. Above checks are made and details are collected into the List to be displayed and to export.
 
-### Basic Report Flow:
+##### Basic Report Flow:
 
 ![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/master/BasicReportFloe.png?_sm_au_=i4sfNDn0HvvfvS2k "Basic Report Flow")
 
-Queries involved:
+##### Queries involved:
 ```
 EC_PHASE:
 select

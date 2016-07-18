@@ -5,9 +5,13 @@
 
 |Type of Error|Messages|Comments|
 |--------------------- |--------------------- |-----------------|
-|Credit Errors         | check for excess     | For ProgramType MBA. 
-                                                When TermCredits >=Min termCredits of the schedule and TermCredits < Max of termCredits
-
+|Credit Errors         | check for excess     | For ProgramType MBA. When TermCredits >=Min termCredits of the schedule and TermCredits < Max of termCredits
+|Credit Errors         |not enough class credits|If currentPeriod is 'ADD_DROP' and ClassCredits >= Class Credits of the Student Schedule.   
+|Credit Errors         |excessive term credits|When the student schedule have more than the term credits.
+|Credit Errors         |not enough term credits|When the student schedule have less than the term credits.
+|Credit Errors         |excessive X credits|When the student schedule have more than the X credits.
+|Credit Errors         |excessive Y credits|When the student schedule have more than the Y credits.
+                                               
 
 
 Json columns requires special handling and the Total Request, fall, January & spring are calculated against the Students based on the foreign key ID.

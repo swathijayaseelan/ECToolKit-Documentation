@@ -48,8 +48,8 @@ Json columns requires special handling and the Total Request, fall, January & sp
       This service communicates with the database and constructs the data which are needed to be displayed in the Report
 
 ### Data Layer:
--Schedule.groovy:
-    All the above checks for Credit/Course Errors will be done here.
+- Schedule.groovy:
+      Data(Report Details) is constructed in Schedule.groovy. Details are segregated into credit/course errors. Above checks are made and details are collected into the List to be displayed and to export.
 
 ### Basic Report Flow:
 

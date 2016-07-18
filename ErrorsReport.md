@@ -38,7 +38,7 @@ Json columns requires special handling and the Total Request, fall, January & sp
 
 ##### Controller: (Rest Controllers)
 - PeriodReportingController.groovy:
-      Based on the request Mapping corresponding PeriodReportingService is involved.
+      Based on the request Mapping(@RequestMapping(value='/errors', method=GET))corresponding PeriodReportingService is involved.
 - PeriodExportingController.groovy:
       Based on the request Mapping corresponding PeriodExportingService is involved. 
       This controller is invoked while the user tries to download the data via ‘EXPORT’ button.

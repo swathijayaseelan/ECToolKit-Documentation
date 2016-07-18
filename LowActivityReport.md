@@ -1,10 +1,10 @@
-#### Low Activity Report:
+### Low Activity Report:
 -	This Report is used to find out the students who have raised only 50% of the total requests.
 -	Report varies depending on the allocation Periods.
 -	When the current Allocation Period is ‘PRE-REGISTRATION’ then this report holds information of the students who raised below 30 requests.( No of Requests < 30)
 -	When the current Allocation Period is ‘ADD-DROP’ then this report holds the information of the students who raised below 4 requests. .( No of Requests < 4)
 
-#### Report Details: 
+##### Report Details: 
 
 |Headers in Report|Columns in Tables|Table Involved|
 |--------------------- |--------------------- |-----------------|
@@ -19,32 +19,32 @@
 |Spring                |Terms_JSON            | EC_PHASE
 
 Json columns requires special handling and the Total Request, fall, January & spring are calculated against the Students based on the foreign key ID.
-### Tables Involved:
+#####  Tables Involved:
 •	EC_PHASE
 •	PERSON
 •	STUDENT_REQUESTS
-## Classes Involved:
-### JS/HTML Files:
+#### Classes Involved:
+##### JS/HTML Files:
 •	admin.js
 •	BasicReportCtrl.js
 •	ReportService.js
 •	lowActivity.html
 
-### Controller: (Rest Controllers)
+#####  Controller: (Rest Controllers)
 •	PeriodReportingController.groovy:
       Based on the request Mapping(@RequestMapping(value='/lowActivity', method=GET)) corresponding PeriodReportingService is involved.
 •	PeriodExportingController.groovy:
       Based on the request Mapping corresponding PeriodExportingService is involved. This controller is invoked while the user tries to download the data via ‘EXPORT’ button.
 
-### Service:
+#####  Service:
 •	PeriodReportingService.groovy
 This service communicates with the database and constructs the data which are needed to be displayed in the Report
 
-### Basic Report Flow:
+#####  Basic Report Flow:
 
 ![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/master/BasicReportFloe.png?_sm_au_=i4sfNDn0HvvfvS2k "Basic Report Flow")
 
-Queries involved:
+##### Queries involved:
 ```
 EC_PHASE:
 select

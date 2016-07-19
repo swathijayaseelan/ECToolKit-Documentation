@@ -152,3 +152,6 @@ select
      this_.course_allocation_id=?
 
 ```
+##### Basic Report Flow:
+
+![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/master/BasicReportFloe.png?_sm_au_=i4sfNDn0HvvfvS2k "Basic Report Flow")

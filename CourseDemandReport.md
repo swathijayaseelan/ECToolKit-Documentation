@@ -1,5 +1,6 @@
 #### Course Demand Report:
 -	To get the demand of the course/course section. This report is executed by Admin. The report gets the data after the Preregistration entry period.
+-	Before the completion of Pre-Registration period this data would not give up any results.
 
 #### Report Details
 
@@ -19,3 +20,4 @@
 |WaitPool|queued_requests|ALLOCATION_STATISTICS
 |Enrollments|enrollments|ALLOCATION_STATISTICS
 |Filled at Round|filled_at|ALLOCATION_STATISTICS
+

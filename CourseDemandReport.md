@@ -21,6 +21,29 @@
 |Enrollments|enrollments|ALLOCATION_STATISTICS
 |Filled at Round|filled_at|ALLOCATION_STATISTICS
 
+#####  Tables Involved:
+-	EC_PHASE.
+-	ALLOCATION_STATISTICS.
+-	COURSE_ALLOCATION.
+
+#### Classes Involved:
+##### JS/HTML Files:
+-	admin.js.
+-	BasicReportCtrl.js.
+-	ReportService.js.
+-	Report.js (modifies the URL from courseDemand to CourseSectionDemand)
+-	courseDemand.html
+
+#####  Controller: (Rest Controllers)
+•	PeriodReportingController.groovy:
+      Based on the request Mapping(@RequestMapping(value='/courseSectionDemand', method=GET)) corresponding PeriodReportingService is involved.
+•	PeriodExportingController.groovy:
+      Based on the request Mapping corresponding PeriodExportingService is involved. This controller is invoked while the user tries to download the data via ‘EXPORT’ button.
+
+#####  Service:
+•	PeriodReportingService.groovy
+This service communicates with the database and constructs the data which are needed to be displayed in the Report
+
 #### Queries involved:
 ```
 EC_PHASE:

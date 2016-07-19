@@ -35,14 +35,11 @@
 -	courseDemand.html
 
 #####  Controller: (Rest Controllers)
-•	PeriodReportingController.groovy:
-      Based on the request Mapping(@RequestMapping(value='/courseSectionDemand', method=GET)) corresponding PeriodReportingService is involved.
-•	PeriodExportingController.groovy:
-      Based on the request Mapping corresponding PeriodExportingService is involved. This controller is invoked while the user tries to download the data via ‘EXPORT’ button.
+-	PeriodReportingController.groovy:Based on the request Mapping(@RequestMapping(value='/courseSectionDemand', method=GET))              corresponding PeriodReportingService is involved.
+-	PeriodExportingController.groovy:Based on the request Mapping corresponding PeriodExportingService is involved. This controller       is invoked while the user tries to download the data via ‘EXPORT’ button.
 
 #####  Service:
-•	PeriodReportingService.groovy
-This service communicates with the database and constructs the data which are needed to be displayed in the Report
+-	PeriodReportingService.groovy: This service communicates with the database and constructs the data which are needed to be             displayed in the Report
 
 #### Queries involved:
 ```

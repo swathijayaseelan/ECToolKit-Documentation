@@ -43,11 +43,12 @@
         allocation_period allocation0_
     where
         allocation0_.elective_period_id=?
-
       ```
   ##### Admin Actions:
-      To display the details under Admin Actions below query is executed.
+      To display the details under Admin Actions below query is executed. Only Notifications of Type Action(3) will be displayed.
       ```
+      NOTIFICATIONS:
+      
       select
         this_.id as id1_21_0_,
         this_.acknowledged as acknowledged2_21_0_,

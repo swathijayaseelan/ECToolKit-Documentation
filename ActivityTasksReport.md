@@ -3,7 +3,41 @@
     
 #### Views Involved:
     - STAGE_ACTIVITY_TASK_CONFIG.
-    
+    The above view gets the data from SIS tables.
+    ```
+     SELECT ATC.ACTIVITY_TASK_CONFIG_ID,
+        AT.ACTIVITY_TASK_ID,
+           AT.ACTIVITY_TASK_CODE,
+           AT.ACTIVITY_TASK_NAME,
+           ATC.ACTY_ID,
+           A.ACTY_TYPE_CODE,
+           ATC.START_DATE_TIME,
+           ATC.END_DATE_TIME,
+           CASE
+              WHEN (   (AT.UPDATE_DATE >= ATC.UPDATE_DATE OR ATC.UPDATE_DATE IS NULL)
+                    OR (AT.UPDATE_DATE >= A.ACTY_DATE OR A.ACTY_DATE IS NULL))
+              THEN
+                 AT.UPDATE_DATE
+              WHEN (   (ATC.UPDATE_DATE >= AT.UPDATE_DATE OR AT.UPDATE_DATE IS NULL)
+                    OR (ATC.UPDATE_DATE >= A.ACTY_DATE OR A.ACTY_DATE IS NULL))
+              THEN
+                 ATC.UPDATE_DATE
+              WHEN (   (A.ACTY_DATE >= ATC.UPDATE_DATE OR ATC.UPDATE_DATE IS NULL)
+                    OR (A.ACTY_DATE >= AT.UPDATE_DATE OR AT.UPDATE_DATE IS NULL))
+              THEN
+                 A.ACTY_DATE
+              ELSE
+                 NULL
+           END
+      FROM SISMGR.ACTIVITY_TASK AT,
+           SISMGR.ACTIVITY_TASK_CONFIGURATION ATC,
+           SISMGR.ACTIVITY_TASK_REGISTRY ATR,
+           ENTMGR.BT_ACTY A
+     WHERE     AT.ACTIVITY_TASK_ID = ATC.ACTIVITY_TASK_ID
+           AND ATC.ACTY_ID = A.ACTY_ID
+           AND ATR.ACTIVITY_TASK_ID = AT.ACTIVITY_TASK_ID
+           AND ATR.APPN_PURPOSE_TYPE_CODE = 'ECTK';
+  ```         
 #### Tables Involved:
     -   ALLOCATION_PERIOD.
     -   NOTIFICATIONS.

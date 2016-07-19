@@ -2,7 +2,7 @@
     This Report have details about Activity Tasks, Allocation Periods and Admin Actions.
 #### Queries involved:
 ##### Activity tasks:      To display the details under Activity Tasks below query is executed.
-      ```
+    
       STAGE_ACTIVITY_TASK_CONFIG:
       
       SELECT
@@ -17,11 +17,10 @@
         acty_id = ?
     ORDER BY
         start_date_time
-      ```
+      
   ##### Allocation Periods: To display the details under Allocation Periods below query is executed.
   
-      ```
-      ALLOCATION_PERIOD:
+    ALLOCATION_PERIOD:
       select
         allocation0_.elective_period_id as elective_period_id6_14_0_,
         allocation0_.id as id1_0_0_,
@@ -42,10 +41,9 @@
         allocation_period allocation0_
     where
         allocation0_.elective_period_id=?
-      ```
+      
   ##### Admin Actions:To display the details under Admin Actions below query is executed. Only Notifications of Type Action(3) will be displayed.
   
-      ```
       NOTIFICATIONS:
       select
         this_.id as id1_21_0_,
@@ -75,4 +73,4 @@
         )
     order by
         this_.date_created desc
-      ```
+     

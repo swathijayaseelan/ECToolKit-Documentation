@@ -31,15 +31,14 @@ Properties files which holds all the messages which needs to be inserted into th
 NotificationType.java:
 This JAVA file contains all Notification Types which are provided in the enum.
 
-ERROR	- 1	
-
-WARNING	- 2	
-
-ACTION	- 3	- Displayed under Notifications.
-
-EVENT	- 4 - None of the Notifications in the application is of Event(Notification Type).	
-
-INFO	- 5	- Displayed under Notifications.
+|Notificatio Type|Notification Type Code| Remarks|
+|--------------------- |----------------- |-------------|
+|ERROR                 | 1      |
+|WARNING               | 2      |
+|ACTION                | 3      |Displayed under Notifications.
+|EVENT                 | 4      |None of the Notifications in the application is of Event(Notification Type).
+|INFO                  | 5      |Displayed under Notifications.
+	
 
 
 Below are the notifications in ECTK:

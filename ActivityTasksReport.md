@@ -1,10 +1,9 @@
 #### Activity Task Report:  
     This Report have details about Activity Tasks, Allocation Periods and Admin Actions.
 #### Queries involved:
-##### Activity tasks:      To display the details under Activity Tasks below query is executed.
+##### Activity tasks: To display the details under Activity Tasks below query is executed.
     
       STAGE_ACTIVITY_TASK_CONFIG:
-      
       SELECT
         activity_task_id AS id,
         activity_task_code AS code,
@@ -18,7 +17,7 @@
     ORDER BY
         start_date_time
       
-  ##### Allocation Periods: To display the details under Allocation Periods below query is executed.
+  #### Allocation Periods: To display the details under Allocation Periods below query is executed.
   
     ALLOCATION_PERIOD:
       select

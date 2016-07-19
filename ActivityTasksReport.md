@@ -1,5 +1,14 @@
 #### Activity Task Report:  
     This Report have details about Activity Tasks, Allocation Periods and Admin Actions.
+#### Views Involved:
+
+    -STAGE_ACTIVITY_TASK_CONFIG
+#### Tables Involved:
+
+    -ALLOCATION_PERIOD.
+    -NOTIFICATIONS.
+
+
 #### Queries involved:
 ##### Activity tasks: To display the details under Activity Tasks below query is executed.
     

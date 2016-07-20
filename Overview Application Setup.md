@@ -100,11 +100,13 @@ Account.create name: '<Any Name>', key: '<Any Unique Number, like 12345>', secre
 |**Extensions**|Select *Account Navigation* and *Course Navigation*|
 
 In Course Navigtaion Settings
+
 |Field | Value|
 |------|-------|
 |**LTI Launch URL**|Provide the URL of your  application followed by /lti/course (e.g. http://localhost:3000/lti/course)|
 
 In Account Navigation Settings
+
 |Field | Value|
 |------|-------|
 |**LTI Launch URL**|Provide the URL of your  application followed by /lti/course (e.g. http://localhost:3000/lti/account)|

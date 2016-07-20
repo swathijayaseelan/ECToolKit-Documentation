@@ -30,9 +30,9 @@ The below stpes describe the procedure to create developer keys and id that will
 
 ## 2. Create Web Hooks
 
-1. Open a terminal (in Linux or Mac) or Cygwin window in PC.
-2. Change the directory to the root folder of the Overview application.
-3. Create a new file named *webhook.json* and enter the below data into it. You may provide any URL in the call back URL.
+- Open a terminal (in Linux or Mac) or Cygwin window in PC.
+- Change the directory to the root folder of the Overview application.
+- Create a new file named *webhook.json* and enter the below data into it. You may provide any URL in the call back URL.
 ```javascript
 {
     "webhook": {
@@ -44,7 +44,7 @@ The below stpes describe the procedure to create developer keys and id that will
   }
 }
 ```
-4. Now run the below command to get the Canvas Web Hook token from the terminal. Use the access token generated in step 1.1.
+- Now run the below command to get the Canvas Web Hook token from the terminal. Use the access token generated in step 1.1.
 ```
 curl https://hbs-dev.instructure.com/api/v1/webhooks \
     -X POST \
@@ -52,11 +52,11 @@ curl https://hbs-dev.instructure.com/api/v1/webhooks \
     -H "Content-Type: application/json" \
     --data-binary "@webhook.json"
 ```
-5. The repsonse will be something like below.
+- The repsonse will be something like below.
 ```javascript
 {
-	"webhook":{
-    	"id":8,
+  "webhook":{
+      "id":8,
         "callback_url":"http://localhost:3000/",
         "account_id":1,
         "event_types":["assignment_group","assignment"],
@@ -66,12 +66,12 @@ curl https://hbs-dev.instructure.com/api/v1/webhooks \
         }
 }
 ```
-6. Copy the ***token*** and ***account_id*** fields from the response. 
+- Copy the ***token*** and ***account_id*** fields from the response. 
 
 ## 3. Create Account
 
-1. From the terminal or Cygwin window, run the command ```rails c```. This will open up the rails console.
-2. From the IRB prompt, set the variable named *settings* as provided below.
+- From the terminal or Cygwin window, run the command ```rails c```. This will open up the rails console.
+- From the IRB prompt, set the variable named *settings* as provided below.
 ```Ruby
 settings = {
   account_admin_api_token: '<Access Token>',
@@ -79,18 +79,61 @@ settings = {
   canvas_hook_key: '<Canvas Hook Key from step 2>' # Webhook shared secret for validating signed JWT requests
 } 
 ```
-3. Run the command as below from the IRB prompt.
+- Run the command as below from the IRB prompt.
 ```ruby
 Account.create name: '<Any Name>', key: '<Any Unique Number, like 12345>', secret: '<Any Unique Number, like 123456>', oauth2_client_id: '<Developer Id from step 1.2>', oauth2_client_key: '<Developer Key from 1.2>', canvas_account_id: '<account_id from step 2>', settings:settings
 ```
-4. This will create the account object for the application to registered with Canvas.
+- This will create the account object for the application to registered with Canvas.
+- The value provided in *key* will be used later to register the LTI app view base Canvas application (Step 5).
 
 ## 4. Generate the application XML
-1. Navigate the URL https://www.edu-apps.org/build_xml.html. The XML needed to register any LTI application can be generated from this website.
-2. In the text boxes provided, enter the data as described below:
+- Navigate the URL https://www.edu-apps.org/build_xml.html. The XML needed to register any LTI application can be generated from this website.
+- In the text boxes provided, enter the data as described below:
+
 |Field | Value|
-|------|------|
-|Name|Provide any valid name for the application|
-|Id|Provide the value of the *key* attribute provided while creating the account in section 3|
-|Description| Provide any valid description for the application.|
-3. 
+|------|-------|
+|**Name**|Provide any valid name for the application|
+|**Id**|Provide the value of the *key* attribute provided while creating the account in section 3|
+|**Description**| Provide any valid description for the application.|
+|**LTI Launch URL**| Provide the URL of your  application|
+|**Launch Privacy**| Public|
+|**Extensions**|Select *Account Navigation* and *Course Navigation*|
+
+In Course Navigtaion Settings
+|Field | Value|
+|------|-------|
+|**LTI Launch URL**|Provide the URL of your  application followed by /lti/course (e.g. http://localhost:3000/lti/course)|
+
+In Account Navigation Settings
+|Field | Value|
+|------|-------|
+|**LTI Launch URL**|Provide the URL of your  application followed by /lti/course (e.g. http://localhost:3000/lti/account)|
+
+- Click on generate XML. The XML will be available in the textarea below. Use the XML to register the application with base Canvas application.
+
+## 5. Application Registration
+The following steps take you through registration of the application with the base Canvas application.
+- Login into the base Canvas application.
+- Navigate to *Admin* > *Harvard Business School-Dev* > *Settings* > *Apps*
+- Click on ***View App Configurations***
+- Click on ***Add Appp*** to add a new App.
+- In the popup, select the option to *Paste XML*
+- In the fields, add the data as below.
+
+|Field | Value|
+|------|-------|
+|**Name**|Provide the same name that you provided while creating the XML in step 4|
+|**Consumer Key**| Provide the *key* that you used create account in step 3.|
+|**XML Configuration**| Copy the XML that was generated in step 4.|
+
+- Click ***Submit** to add the new app to the base Canvas application.
+
+## 6. Starting the LTI app (Overview)
+1. Open a Terminal (or Cygwin window) and navigate to the root folder of the application.
+2. Run the command ```foreman start``` and leave the window as such. This is the background process that syncs the course details (assignments and assignment groups).
+3. Open another Terminal (or Cygwin window) and navigate to the root folder of the application.
+4. Run the command ```rails s``` to start the application.
+5. Navigate to any course in the base Canvas application and click on the link for the application you registered from the left side menu.
+6. If the application is a http app, it will open in a new window and if it is a https app, the application shall open with in the parent window.
+
+

@@ -126,7 +126,7 @@ The following steps take you through registration of the application with the ba
 |**Consumer Key**| Provide the *key* that you used create account in step 3.|
 |**XML Configuration**| Copy the XML that was generated in step 4.|
 
-- Click ***Submit** to add the new app to the base Canvas application.
+- Click ***Submit*** to add the new app to the base Canvas application.
 
 ## 6. Starting the LTI app (Overview)
 1. Open a Terminal (or Cygwin window) and navigate to the root folder of the application.

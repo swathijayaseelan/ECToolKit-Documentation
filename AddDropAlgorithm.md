@@ -18,7 +18,7 @@ Below is the process involved when Add Drop Algorithm is run by Admin.
 - Add course requests of the students to new request pool or temporary subset of existing prioritization queue, request queue or request pool depending on value of addToTemporarySubset flag. 
 - When adding to new request pool check for the presence of student in existing prioritization queue, request queue or request pool and if found student won't be added to new request pool.
 
-![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/78bd2ba276208be562022d52dc80aec402961ce4/AddDropDiagram.jpeg "Add Request Pool FlowChart")  
+![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/afc7845395f7170b9aff6e0a1e1269a902037406/AddRequestPoolDiagram.jpeg "Add Request Pool FlowChart")  
 
 #### Step 3: 
 - Get the Round Number.
@@ -27,4 +27,4 @@ Below is the process involved when Add Drop Algorithm is run by Admin.
 - Maximum number of iteration in Add Drop is 3. 
 - So iterate the students for 3 iterations.
 
-![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/38d7ee60dd0a71444bec631fed5e3e4e0acfd5c7/AddDropDiagram.jpeg "AddDropProcessing FlowChart")  
+![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/78bd2ba276208be562022d52dc80aec402961ce4/AddDropDiagram.jpeg "AddDropProcessing FlowChart")  

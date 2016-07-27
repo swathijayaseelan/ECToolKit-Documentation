@@ -11,10 +11,8 @@ Below is the process involved when Add Drop Algorithm is run by Admin.
 
 Step 1: 
       Drops are processed. Below flowchart describes the drop process.
-      
-      ![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/master/ProcessDropFlow.jpg "Process Drops Flowchart")
 
-      
+![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/47efcd2fbd063f7f53fa8d9731bdc3f0dc421f02/ProcessDropFlow.jpg "Process Drops FlowChart")      
 
 
 

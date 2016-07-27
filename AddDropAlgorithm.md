@@ -28,3 +28,35 @@ Below is the process involved when Add Drop Algorithm is run by Admin.
 - So iterate the students for 3 iterations.
 
 ![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/78bd2ba276208be562022d52dc80aec402961ce4/AddDropDiagram.jpeg "AddDropProcessing FlowChart")  
+
+#### Request Status:
+
+|Status|Corresponding value|
+|--------------------- |---------|
+|UNPROCESSED         | 0    
+|ASSIGNED            | 1 
+|ADDED               | 2  
+|DROPPED             | 3
+|OTHER OPTION ADDED  | 4    
+|WAIT POOL           |100
+|TIME CONFLICT       |101
+|COURSE CANCELLED    |200
+|COURSE SECTION CANCELLED |201
+|DUPLICATE    |202
+|REQUEST LIMIT EXCEEDED |203
+|NOT ENROLLED |204
+|ALREADY ENROLLED |205
+|ALREADY ENROLLED IN SECTION OF SAME COURSE |206
+|INVAID |207
+|N/A |208
+|CREDIT LIMIT EXCEEDED |209
+|XY CREDIT LIMIT EXCEEDED | 210
+|PREREQUISITE MISSING  |211
+|BLOCKED BY MUTUALLY EXCLUSIVE COURSE |212
+|BLOCKED BY YOUR EXCLUSION SET | 213
+|DEPENDANT COURSE ENROLLED |214
+|APPLICATION ONLY COURSE |215
+|PROCESSING ENROLLEMENT |216
+|STUDENT WITHDRAWN |217
+
+	

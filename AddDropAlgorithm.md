@@ -26,3 +26,5 @@ Below is the process involved when Add Drop Algorithm is run by Admin.
 #### Step 4:
 - Maximum number of iteration in Add Drop is 3. 
 - So iterate the students for 3 iterations.
+
+![Alt text](https://raw.githubusercontent.com/swathijayaseelan/ECToolKit-Documentation/38d7ee60dd0a71444bec631fed5e3e4e0acfd5c7/AddDropDiagram.jpeg "AddDropProcessing FlowChart")  

@@ -14,3 +14,35 @@ The data travels through the following layers in the synchronization process bef
 
 The below picture summarizes the transformation. 
 ![ECTK-SYNC](https://github.com/jganesan1/ECToolKit-Documentation/blob/master/ECTK-Sync.png)
+
+## Synchronization ##
+
+The synchronization happens based on the last modified date of an entity record. The last modified date is known as ***Refresh Date*** in ECTK synchronization parlance. Every stage view has refresh date. 
+
+For synchronization, we pick only those records from the stage view, whose refresh date is greater the max refresh date of the all the existing entities. 
+
+**Types of Synchronization:** There are two types of synchronization - *Full* and *New and Updated*. As the name suggests, the New and Updated and updates the new and updated records only. A Full synchronization not only copies and updates the new and updated records, but also deletes the deleted records. 
+
+
+## Entities/Tables Involved in Synchronization ##
+
+|S.No|Table Name| Stage View Name|Synchronization Class|
+|----|----------|----------------|---------------------|
+|1|ALLOCATION_PERIOD|STAGE_ACTIVITY_TASK_CONFIG|AllocationPeriodSyncService|
+|2|COURSE_ENROLLMENT|STAGE_STUDENT_ENROLLMENT|CourseEnrollmentSyncService|
+|3|COURSE_PREREQUSITE|stage_course_prerequisite|CoursePrerequisiteSyncService|
+|4|COURSE_SECTION_FACULTY|stage_course_section_faculty|CourseSectionFacultySyncService|
+|5|COURSE_SECTION|stage_course_section_activity|CourseSectionSyncService|
+|6|COURSE|stage_course_activity|CourseSyncService|
+|7|COURSE_UNIT|stage_course_unit|CourseUnitSyncService|
+|8|ELECTIVE_PERIOD_STUDENT|stage_academic_phase_enroll|ElectivePeriodSyncService|
+|9|LESSON_EVENT|stage_course_section_meeting|LessonEventSyncService|
+|10|MUTUALLY_EXCLUSIVE_COURSE|stage_mutually_exclusive|MutuallyExclusiveSyncService|
+|11|PERSON|stage_person|PersonSyncService|
+|12|PROGRAM_SESSION|stage_program_session_activity|ProgramSessionSyncService|
+|13|TERM_CREDIT_LIMIT|stage_credit_limit|TermCreditLimitSyncService|
+|14|TERM|stage_term_activity|TermSyncService|
+|15|UNIT|stage_unit|UnitSyncService|
+
+
+

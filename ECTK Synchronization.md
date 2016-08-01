@@ -44,5 +44,30 @@ For synchronization, we pick only those records from the stage view, whose refre
 |14|TERM|stage_term_activity|TermSyncService|
 |15|UNIT|stage_unit|UnitSyncService|
 
+## Single Synchronization Flow ##
 
+Let us review the synchronization flow by taking the example of ```Person``` table. The next section summarizes the other sync processes.
+
+* The PersonSyncService gets the max refresh date in the table by using the below GORM (HQL) query.
+```sql
+SELECT MAX(refreshDate) FROM Person
+```
+* Then we use another query to find out the records that have been modified after this date from ```stage_person``` view
+```sql
+			SELECT
+				person_id AS id,
+				first_name AS firstName,
+				middle_name AS middleName,
+				last_name AS lastName,
+				email_address AS email,
+				joint_degree_program_type_code AS programType,
+				entry_term_acty_id AS entryTermId,
+				estimated_graduation_date AS estimatedGraduationDate,
+				refresh_date AS refreshDate
+			FROM stage_person
+			WHERE refresh_date > ?
+```
+* For all the records that is found from the query, it picks the corresponding ```Person``` object. 
+* If the ```Person``` object is found then, the record is updated, else a new ```Person``` object is created and persisted to the ```Person``` table.
+* This sync does not differentiate between the two types of the behavior. A person record is never deleted.
 
